@@ -1,6 +1,6 @@
 # Bucharest-Summer-Game-Jam
 
-Bucharest Summer Game Jam submitted edition
+48 Hour Bucharest Summer Game Jam submitted edition - July 2023
 - misses speech bubble feature, text is in speechbubbles.txt
 - misses any kind of saving / pausing feature; short game though
 
