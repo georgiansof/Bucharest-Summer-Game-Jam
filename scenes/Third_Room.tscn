@@ -1,0 +1,190 @@
+[gd_scene load_steps=23 format=3 uid="uid://fl4sjr0s47ol"]
+
+[ext_resource type="Texture2D" uid="uid://blbwnyr0m0voo" path="res://sprites/MysteriousOfficeRoomFloor.png" id="1_l20xa"]
+[ext_resource type="Texture2D" uid="uid://b1d7cq2glnca6" path="res://sprites/MysteriousOfficeRoomWalls.png" id="2_irl8m"]
+[ext_resource type="Texture2D" uid="uid://djlewie4i3yq2" path="res://sprites/MysteriousOfficeRoomGate08.png" id="3_qw0vq"]
+[ext_resource type="PackedScene" uid="uid://8vrd2fomw7rs" path="res://scenes/player.tscn" id="4_2pkh2"]
+[ext_resource type="Texture2D" uid="uid://c2vki2pnlujq0" path="res://sprites/MysteriousOfficeRoomGate01.png" id="4_v6fhp"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="5_7m5aw"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="5_tskb8"]
+[ext_resource type="Script" path="res://scripts/journal_2nd.gd" id="6_s8v07"]
+[ext_resource type="Texture2D" uid="uid://bneogontos1ob" path="res://sprites/page_5.png" id="7_oi7in"]
+[ext_resource type="Texture2D" uid="uid://bxouqk555au5n" path="res://sprites/Chair_Sprite_01.png" id="9_r2pg2"]
+[ext_resource type="FontFile" uid="uid://bafv20abifyfm" path="res://fonts/PixgamerRegular-OVD6A.ttf" id="10_3pbbe"]
+[ext_resource type="Texture2D" uid="uid://b6amlvk7sbkjx" path="res://sprites/Table_03_Sprite.png" id="10_aqon7"]
+[ext_resource type="Script" path="res://scripts/table.gd" id="11_7vp4s"]
+[ext_resource type="Texture2D" uid="uid://dq00cuxf1qshv" path="res://sprites/pc.png" id="12_6mb0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jrxym"]
+size = Vector2(13.7931, 19.1223)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8107x"]
+size = Vector2(13.195, 15.0138)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lwlp5"]
+size = Vector2(24.0344, 17.4107)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fc580"]
+size = Vector2(20, 14.7321)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kor8"]
+size = Vector2(57, 824)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e03pg"]
+size = Vector2(52, 819)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wlbeb"]
+size = Vector2(926, 113)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6bfy3"]
+size = Vector2(925, 51)
+
+[node name="ThirdRoom" type="Node2D"]
+
+[node name="MysteriousOfficeRoomFloor" type="Sprite2D" parent="."]
+position = Vector2(511, 432)
+scale = Vector2(2.9, 2.9)
+texture = ExtResource("1_l20xa")
+
+[node name="MysteriousOfficeRoomWalls" type="Sprite2D" parent="MysteriousOfficeRoomFloor"]
+position = Vector2(0.344833, -8.27586)
+scale = Vector2(1.11, 1.11)
+texture = ExtResource("2_irl8m")
+
+[node name="MysteriousOfficeRoomGate08" type="Sprite2D" parent="MysteriousOfficeRoomFloor"]
+position = Vector2(-168.426, -21.034)
+rotation = -1.5708
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_qw0vq")
+
+[node name="MysteriousOfficeRoomGate09" type="Sprite2D" parent="MysteriousOfficeRoomFloor"]
+position = Vector2(7.241, 124.943)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_v6fhp")
+
+[node name="Area2D" type="Area2D" parent="MysteriousOfficeRoomFloor/MysteriousOfficeRoomGate09"]
+script = ExtResource("5_7m5aw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MysteriousOfficeRoomFloor/MysteriousOfficeRoomGate09/Area2D"]
+position = Vector2(0.627304, -2.76953)
+shape = SubResource("RectangleShape2D_jrxym")
+
+[node name="Player" parent="." instance=ExtResource("4_2pkh2")]
+z_index = 1
+z_as_relative = false
+position = Vector2(202, 225)
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(300, 301)
+script = ExtResource("5_tskb8")
+
+[node name="Journal" type="Control" parent="camera"]
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -95.0
+offset_top = -86.0
+offset_right = -55.0
+offset_bottom = -46.0
+script = ExtResource("6_s8v07")
+
+[node name="JournalSprite" type="Sprite2D" parent="camera/Journal"]
+position = Vector2(99, 90.4736)
+scale = Vector2(0.275926, 0.282895)
+texture = ExtResource("7_oi7in")
+
+[node name="PasswordUI" type="Control" parent="camera"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -300.0
+offset_top = -301.0
+offset_right = -260.0
+offset_bottom = -261.0
+
+[node name="monitorsprite" type="Sprite2D" parent="camera/PasswordUI"]
+z_index = 1
+position = Vector2(298.938, 297.688)
+scale = Vector2(0.280498, 0.27934)
+texture = ExtResource("12_6mb0j")
+
+[node name="TextEdit" type="TextEdit" parent="camera/PasswordUI/monitorsprite"]
+offset_left = -524.0
+offset_top = -317.0
+offset_right = -236.0
+offset_bottom = -257.0
+scale = Vector2(3.5819, 5.12478)
+theme_override_colors/background_color = Color(1, 1, 0, 0)
+theme_override_fonts/font = ExtResource("10_3pbbe")
+theme_override_font_sizes/font_size = 40
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+
+[node name="Lower-Right-Boundary" type="Node2D" parent="."]
+position = Vector2(1027, 820)
+scale = Vector2(3.5, 4.096)
+
+[node name="Chair" type="StaticBody2D" parent="."]
+position = Vector2(836, 158)
+rotation = 0.840172
+scale = Vector2(3.38571, 3.02)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
+position = Vector2(0.318542, -1.45403)
+shape = SubResource("RectangleShape2D_8107x")
+
+[node name="ChairSprite01" type="Sprite2D" parent="Chair"]
+texture = ExtResource("9_r2pg2")
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2(921, 145)
+scale = Vector2(3.32857, 2.24)
+
+[node name="Table03Sprite" type="Sprite2D" parent="Table"]
+texture = ExtResource("10_aqon7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2(-6.10352e-05, -2.00894)
+shape = SubResource("RectangleShape2D_lwlp5")
+
+[node name="Interact" type="Area2D" parent="Table"]
+script = ExtResource("11_7vp4s")
+
+[node name="InteractShape" type="CollisionShape2D" parent="Table/Interact"]
+position = Vector2(0, 3.3482)
+shape = SubResource("RectangleShape2D_fc580")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="LeftWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(18.5, 410)
+shape = SubResource("RectangleShape2D_2kor8")
+
+[node name="RightWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1000, 409.5)
+shape = SubResource("RectangleShape2D_e03pg")
+
+[node name="TopWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(512, 46.5)
+shape = SubResource("RectangleShape2D_wlbeb")
+
+[node name="BottomWall" type="CollisionShape2D" parent="Walls"]
+position = Vector2(511.5, 794.5)
+shape = SubResource("RectangleShape2D_6bfy3")
+
+[node name="Pc" type="Sprite2D" parent="."]
+position = Vector2(914, 119)
+scale = Vector2(0.0236111, 0.0155237)
+texture = ExtResource("12_6mb0j")
+
+[connection signal="body_entered" from="MysteriousOfficeRoomFloor/MysteriousOfficeRoomGate09/Area2D" to="MysteriousOfficeRoomFloor/MysteriousOfficeRoomGate09/Area2D" method="_on_body_entered"]
+[connection signal="level2_complete" from="Player" to="Player" method="_on_level_2_complete"]
+[connection signal="level3_complete" from="Player" to="Player" method="_on_level_3_complete"]
+[connection signal="player_moved" from="camera" to="camera" method="_on_player_moved"]
+[connection signal="toggle_journal" from="camera/Journal" to="camera/Journal" method="_on_toggle_journal"]
+[connection signal="body_entered" from="Table/Interact" to="Table/Interact" method="_on_body_entered"]
+[connection signal="body_exited" from="Table/Interact" to="Table/Interact" method="_on_body_exited"]

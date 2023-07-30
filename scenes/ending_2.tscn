@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1w343khexv1o"]
+
+[node name="ending_leave" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 600.0
+offset_bottom = 600.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 239.0
+offset_right = 551.0
+offset_bottom = 343.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "Aidan: Nadia…finally you’re here. I’ve been waiting for you, little miss pilot.
+Nadia: You are…no. Are you really here with me?
+Aidan: Com’ere sis. Let’s go."
+horizontal_alignment = 1
+autowrap_mode = 2

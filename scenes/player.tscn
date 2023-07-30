@@ -1,0 +1,176 @@
+[gd_scene load_steps=13 format=3 uid="uid://8vrd2fomw7rs"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_ykeg2"]
+[ext_resource type="Texture2D" uid="uid://bo2covjhhbdl4" path="res://sprites/detective.png" id="2_xa31f"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tckua"]
+radius = 14.0
+height = 42.0
+
+[sub_resource type="Animation" id="Animation_qaufy"]
+resource_name = "stand_back"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(4, 0), Vector2i(5, 0), Vector2i(6, 0), Vector2i(7, 0), Vector2i(4, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_pcwbd"]
+resource_name = "stand_facing"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0), Vector2i(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_8nha0"]
+resource_name = "stand_left"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(4, 1), Vector2i(5, 1), Vector2i(6, 1), Vector2i(7, 1), Vector2i(4, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_meg2x"]
+resource_name = "stand_right"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1), Vector2i(0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lqmkq"]
+resource_name = "walk_away"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3), Vector2i(4, 3), Vector2i(5, 3), Vector2i(6, 3), Vector2i(7, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_bq2oc"]
+resource_name = "walk_left"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 5), Vector2i(1, 5), Vector2i(2, 5), Vector2i(3, 5), Vector2i(4, 5), Vector2i(5, 5), Vector2i(6, 5), Vector2i(7, 5)]
+}
+
+[sub_resource type="Animation" id="Animation_cju4k"]
+resource_name = "walk_right"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4), Vector2i(4, 4), Vector2i(5, 4), Vector2i(6, 4), Vector2i(7, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_7uhap"]
+resource_name = "walk_towards"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("texture:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(4, 2), Vector2i(5, 2), Vector2i(6, 2), Vector2i(7, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3psfd"]
+_data = {
+"stand_back": SubResource("Animation_qaufy"),
+"stand_facing": SubResource("Animation_pcwbd"),
+"stand_left": SubResource("Animation_8nha0"),
+"stand_right": SubResource("Animation_meg2x"),
+"walk_away": SubResource("Animation_lqmkq"),
+"walk_left": SubResource("Animation_bq2oc"),
+"walk_right": SubResource("Animation_cju4k"),
+"walk_towards": SubResource("Animation_7uhap")
+}
+
+[node name="player" type="CharacterBody2D"]
+position = Vector2(610, 253)
+script = ExtResource("1_ykeg2")
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(1.6875, 1.6875)
+texture = ExtResource("2_xa31f")
+hframes = 8
+vframes = 6
+frame = 4
+
+[node name="hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(2, 22)
+shape = SubResource("CapsuleShape2D_tckua")
+
+[node name="animator" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_3psfd")
+}

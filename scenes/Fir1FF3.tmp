@@ -1,0 +1,231 @@
+[gd_scene load_steps=26 format=3 uid="uid://8po4brydyb37"]
+
+[ext_resource type="Texture2D" uid="uid://bnkojspmix566" path="res://sprites/PaddedRoomFloor.png" id="1_ge64r"]
+[ext_resource type="Texture2D" uid="uid://c47e1uapmtohi" path="res://sprites/PaddedRoomWalls.png" id="2_2jxvo"]
+[ext_resource type="Texture2D" uid="uid://b1btwifv0esqn" path="res://sprites/Bed_Sprite_01.png" id="3_iusje"]
+[ext_resource type="Texture2D" uid="uid://dnvohyeawb8hg" path="res://sprites/Nightstand_Sprite_01.png" id="4_qgkoj"]
+[ext_resource type="Texture2D" uid="uid://dpt1jgk07hrpi" path="res://sprites/PaddedRoomGate01.png" id="5_lcf2d"]
+[ext_resource type="Texture2D" uid="uid://blj2wcox4qkaj" path="res://sprites/Window_Sprite_01.png" id="6_02wjr"]
+[ext_resource type="Texture2D" uid="uid://dktxvrec4gr6b" path="res://sprites/Lamp_sprite_01.png" id="7_tlg6p"]
+[ext_resource type="Texture2D" uid="uid://bucrd0vjiigi6" path="res://sprites/Spotlight_Sprite_01.png" id="8_tin14"]
+[ext_resource type="Texture2D" uid="uid://bu1omd56fo48q" path="res://sprites/Spotlight_Sprite_02.png" id="9_vrmf7"]
+[ext_resource type="Texture2D" uid="uid://cmmiyqrm11122" path="res://sprites/Garbage_Sprite_01.png" id="10_bcxny"]
+[ext_resource type="PackedScene" uid="uid://8vrd2fomw7rs" path="res://scenes/player.tscn" id="11_w0avd"]
+[ext_resource type="Texture2D" uid="uid://cp6v332c7d0e2" path="res://sprites/lightmask.png" id="12_pb0be"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="12_va8mj"]
+[ext_resource type="Script" path="res://scenes/Journal.gd" id="13_p0ndi"]
+[ext_resource type="Texture2D" uid="uid://bnst3afphh8bw" path="res://sprites/page_1.png" id="15_h0eau"]
+[ext_resource type="Texture2D" uid="uid://cv1jl5xw3pdtj" path="res://sprites/page_2.png" id="15_oj0p0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j7bor"]
+size = Vector2(324.857, 33.2031)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_db2ns"]
+size = Vector2(15.7143, 249.502)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i0x5y"]
+size = Vector2(16, 249.756)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mj0b7"]
+size = Vector2(7.14284, 17.8223)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rymmc"]
+size = Vector2(268.857, 17.0899)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fgvin"]
+size = Vector2(18.5714, 17.5781)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6t30o"]
+size = Vector2(9.03332, 21.7188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fqv6y"]
+size = Vector2(15.873, 29.2969)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t8kw8"]
+size = Vector2(36, 68.9999)
+
+[node name="FirstRoom" type="Node2D"]
+
+[node name="Lower-Right-Boundary" type="Node2D" parent="."]
+position = Vector2(1143, 1159)
+scale = Vector2(3.5, 4.096)
+
+[node name="PaddedRoomFloor" type="Sprite2D" parent="."]
+position = Vector2(572, 578)
+scale = Vector2(3.5, 4.096)
+texture = ExtResource("1_ge64r")
+
+[node name="Walls" type="StaticBody2D" parent="PaddedRoomFloor"]
+
+[node name="PaddedRoomWalls" type="Sprite2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(0, 1)
+scale = Vector2(1.02, 1.11)
+texture = ExtResource("2_2jxvo")
+
+[node name="UpperWall" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(0.142883, -123.291)
+shape = SubResource("RectangleShape2D_j7bor")
+
+[node name="LeftWall" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(-154.714, 18.0713)
+shape = SubResource("RectangleShape2D_db2ns")
+
+[node name="RightWall" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(154.857, 18.1885)
+shape = SubResource("RectangleShape2D_i0x5y")
+
+[node name="BottomWallSmall" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(144.143, 134.399)
+shape = SubResource("RectangleShape2D_mj0b7")
+
+[node name="BottomWall" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(-12.4286, 134.277)
+shape = SubResource("RectangleShape2D_rymmc")
+
+[node name="Door" type="CollisionShape2D" parent="PaddedRoomFloor/Walls"]
+position = Vector2(131.286, 134.521)
+shape = SubResource("RectangleShape2D_fgvin")
+
+[node name="PaddedRoomGate01" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(130.486, 134.5)
+scale = Vector2(1.04613, 1.08194)
+texture = ExtResource("5_lcf2d")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="PaddedRoomFloor"]
+position = Vector2(-50.3218, -108)
+scale = Vector2(1.17027, 1)
+
+[node name="NightstandSprite01" type="Sprite2D" parent="PaddedRoomFloor/StaticBody2D"]
+position = Vector2(0, -7.62939e-06)
+texture = ExtResource("4_qgkoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaddedRoomFloor/StaticBody2D"]
+position = Vector2(0.152908, -6.37501)
+shape = SubResource("RectangleShape2D_6t30o")
+
+[node name="Bed" type="StaticBody2D" parent="PaddedRoomFloor"]
+
+[node name="BedSprite01" type="Sprite2D" parent="PaddedRoomFloor/Bed"]
+position = Vector2(-69.0462, -99.5)
+scale = Vector2(1.17, 1)
+texture = ExtResource("3_iusje")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaddedRoomFloor/Bed"]
+position = Vector2(-69.5714, -101.318)
+scale = Vector2(1.17, 1)
+shape = SubResource("RectangleShape2D_fqv6y")
+
+[node name="Lantern" type="PointLight2D" parent="PaddedRoomFloor/Bed"]
+position = Vector2(-49.4286, -116.943)
+scale = Vector2(0.285714, 0.244141)
+color = Color(0.984314, 0.972549, 0.737255, 1)
+energy = 0.57
+texture = ExtResource("12_pb0be")
+texture_scale = 1.45
+
+[node name="LanternPhysics" type="Area2D" parent="PaddedRoomFloor/Bed/Lantern"]
+
+[node name="LanternHitbox" type="CollisionShape2D" parent="PaddedRoomFloor/Bed/Lantern/LanternPhysics"]
+position = Vector2(-2.99994, 36)
+shape = SubResource("RectangleShape2D_t8kw8")
+
+[node name="LampSprite01" type="Sprite2D" parent="PaddedRoomFloor/Bed/Lantern"]
+position = Vector2(-1.99988, 3.99856)
+scale = Vector2(2.04798, 2.048)
+texture = ExtResource("7_tlg6p")
+
+[node name="WindowSprite01" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(76.653, -115)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("6_02wjr")
+
+[node name="WindowSprite01_2" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(-0.585133, -115)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("6_02wjr")
+
+[node name="WindowSprite01_3" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(-98.3031, -115)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("6_02wjr")
+
+[node name="SpotlightSprite01" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(-116.8, 3.07586)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("8_tin14")
+
+[node name="Lantern" type="PointLight2D" parent="PaddedRoomFloor/SpotlightSprite01"]
+position = Vector2(64.6493, -13.5739)
+scale = Vector2(0.285714, 0.244141)
+color = Color(1, 1, 0.729412, 1)
+energy = 0.57
+texture = ExtResource("12_pb0be")
+texture_scale = 3.25
+
+[node name="SpotlightSprite02" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(124.634, 46)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("9_vrmf7")
+
+[node name="Lantern" type="PointLight2D" parent="PaddedRoomFloor/SpotlightSprite02"]
+position = Vector2(-59.3805, -0.833984)
+scale = Vector2(0.285714, 0.244141)
+color = Color(1, 1, 0.752941, 1)
+energy = 0.57
+texture = ExtResource("12_pb0be")
+texture_scale = 3.25
+
+[node name="GarbageSprite01" type="Sprite2D" parent="PaddedRoomFloor"]
+position = Vector2(114.102, 25.5)
+scale = Vector2(1.17027, 1)
+texture = ExtResource("10_bcxny")
+
+[node name="Player" parent="." instance=ExtResource("11_w0avd")]
+position = Vector2(273, 159)
+
+[node name="playerview" type="PointLight2D" parent="Player"]
+energy = 0.1
+texture = ExtResource("12_pb0be")
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(302, 303)
+scale = Vector2(2.5, 2.926)
+script = ExtResource("12_va8mj")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="camera"]
+position = Vector2(-11.6, -49.2139)
+scale = Vector2(0.4, 0.341763)
+color = Color(0, 0, 0, 1)
+
+[node name="Journal" type="Control" parent="camera"]
+process_mode = 3
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_top = 0.341759
+offset_right = 40.0
+offset_bottom = 40.3418
+script = ExtResource("13_p0ndi")
+
+[node name="Light" type="PointLight2D" parent="camera/Journal"]
+process_mode = 3
+position = Vector2(-60.8, -38.6193)
+scale = Vector2(1, 1)
+color = Color(1, 1, 0.756863, 1)
+energy = 0.0
+texture = ExtResource("12_pb0be")
+texture_scale = 0.4
+
+[node name="JournalSprite" type="Sprite2D" parent="camera/Journal"]
+position = Vector2(-56.2, 1.36705)
+scale = Vector2(0.0598148, 0.0955672)
+texture = ExtResource("15_oj0p0")
+
+[node name="JournalSprite2" type="Sprite2D" parent="camera/Journal"]
+position = Vector2(63.2001, 1.02527)
+scale = Vector2(0.0598148, 0.0955672)
+texture = ExtResource("15_h0eau")
+
+[connection signal="body_entered" from="PaddedRoomFloor/Bed/Lantern/LanternPhysics" to="Player" method="_on_lantern_physics_body_entered" flags=3]
+[connection signal="player_moved" from="camera" to="camera" method="_on_player_moved"]
+[connection signal="toggle_journal" from="camera/Journal" to="camera/Journal" method="_on_toggle_journal"]

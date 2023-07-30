@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://h7fw54yps5ok"]
+
+[ext_resource type="Texture2D" uid="uid://b76615htwb1bw" path="res://sprites/Hallway_Corridor.png" id="1_tk3um"]
+[ext_resource type="Texture2D" uid="uid://qarbd1m5m2sn" path="res://sprites/LampWall_Sprite_01.png" id="2_h76ss"]
+[ext_resource type="Texture2D" uid="uid://b4m3w5tdbxpf5" path="res://sprites/Character_Mockup.png" id="3_qj15a"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="HallwayCorridor" type="Sprite2D" parent="."]
+position = Vector2(320, 145)
+scale = Vector2(2, 2)
+texture = ExtResource("1_tk3um")
+
+[node name="LampWallSprite01_6" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(155, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="LampWallSprite01_5" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(93, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="LampWallSprite01_4" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(31, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="LampWallSprite01_3" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(-31, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="LampWallSprite01_2" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(-93, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="LampWallSprite01" type="Sprite2D" parent="HallwayCorridor"]
+position = Vector2(-155, -50)
+texture = ExtResource("2_h76ss")
+
+[node name="CharacterMockup" type="Sprite2D" parent="."]
+position = Vector2(35, 159)
+texture = ExtResource("3_qj15a")

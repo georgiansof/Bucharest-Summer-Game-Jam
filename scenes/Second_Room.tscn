@@ -1,0 +1,152 @@
+[gd_scene load_steps=19 format=3 uid="uid://cmlk204ljudu4"]
+
+[ext_resource type="Texture2D" uid="uid://cwmajli4307l7" path="res://sprites/LockerRoomFloorV2.png" id="1_ipmdl"]
+[ext_resource type="Texture2D" uid="uid://07jwlrithkqf" path="res://sprites/LockerRoomWalls.png" id="2_jrvcy"]
+[ext_resource type="Texture2D" uid="uid://c45s3svyjqkcx" path="res://sprites/LockerRoomGate08.png" id="3_68bmh"]
+[ext_resource type="Texture2D" uid="uid://4pd6pfghd50l" path="res://sprites/LockerRoomGate01.png" id="4_8hhen"]
+[ext_resource type="PackedScene" uid="uid://8vrd2fomw7rs" path="res://scenes/player.tscn" id="5_5rvxw"]
+[ext_resource type="Script" path="res://scripts/door.gd" id="5_7t77w"]
+[ext_resource type="Script" path="res://scripts/camera.gd" id="6_6vh5t"]
+[ext_resource type="Script" path="res://scripts/journal_2nd.gd" id="7_ithqy"]
+[ext_resource type="Texture2D" uid="uid://yhxj2wuuyvce" path="res://sprites/page_3.png" id="8_jdxgp"]
+[ext_resource type="Texture2D" uid="uid://d1ycub24qh85h" path="res://sprites/page_4.png" id="9_gebfc"]
+[ext_resource type="Script" path="res://scripts/locker.gd" id="10_ijqj8"]
+[ext_resource type="Texture2D" uid="uid://ba4lpxaergkea" path="res://sprites/Drawers_Sprite_01.png" id="10_uvtq2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8conu"]
+size = Vector2(57.9999, 851)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_82nn5"]
+size = Vector2(15.7863, 254.965)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_libwv"]
+size = Vector2(288.259, 31.3757)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tn6u"]
+size = Vector2(288.574, 15.8401)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yeywq"]
+size = Vector2(19.718, 21.3166)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uggjb"]
+size = Vector2(34, 69.5)
+
+[node name="SecondRoom" type="Node2D"]
+
+[node name="LockerRoomFloorV2" type="Sprite2D" parent="."]
+position = Vector2(515, 456)
+scale = Vector2(2.9, 2.9)
+texture = ExtResource("1_ipmdl")
+
+[node name="LockerRoomWalls" type="Sprite2D" parent="LockerRoomFloorV2"]
+position = Vector2(-3.053, -12.414)
+scale = Vector2(1.09217, 1.132)
+texture = ExtResource("2_jrvcy")
+
+[node name="Walls" type="StaticBody2D" parent="LockerRoomFloorV2/LockerRoomWalls"]
+position = Vector2(1.52588e-05, 0)
+
+[node name="LeftWall" type="CollisionShape2D" parent="LockerRoomFloorV2/LockerRoomWalls/Walls"]
+position = Vector2(-153.805, -1.37061)
+scale = Vector2(0.315727, 0.304618)
+shape = SubResource("RectangleShape2D_8conu")
+
+[node name="RightWall" type="CollisionShape2D" parent="LockerRoomFloorV2/LockerRoomWalls/Walls"]
+position = Vector2(152.134, -0.456741)
+shape = SubResource("RectangleShape2D_82nn5")
+
+[node name="UpperWall" type="CollisionShape2D" parent="LockerRoomFloorV2/LockerRoomWalls/Walls"]
+position = Vector2(-0.519821, -111.947)
+shape = SubResource("RectangleShape2D_libwv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerRoomFloorV2/LockerRoomWalls/Walls"]
+position = Vector2(0.269516, 120.324)
+shape = SubResource("RectangleShape2D_2tn6u")
+
+[node name="LockerRoomGate08" type="Sprite2D" parent="LockerRoomFloorV2"]
+position = Vector2(-79.889, -130)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("3_68bmh")
+
+[node name="LockerRoomGate01" type="Sprite2D" parent="LockerRoomFloorV2"]
+position = Vector2(73.793, -130.1)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_8hhen")
+
+[node name="Area2D" type="Area2D" parent="LockerRoomFloorV2/LockerRoomGate01"]
+script = ExtResource("5_7t77w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LockerRoomFloorV2/LockerRoomGate01/Area2D"]
+position = Vector2(-0.141006, 1.65832)
+shape = SubResource("RectangleShape2D_yeywq")
+
+[node name="Player" parent="." instance=ExtResource("5_5rvxw")]
+z_index = 1
+z_as_relative = false
+position = Vector2(202, 225)
+
+[node name="camera" type="Camera2D" parent="."]
+position = Vector2(300, 301)
+script = ExtResource("6_6vh5t")
+
+[node name="Journal" type="Control" parent="camera"]
+process_mode = 3
+visible = false
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = -95.0
+offset_top = -86.0
+offset_right = -55.0
+offset_bottom = -46.0
+script = ExtResource("7_ithqy")
+
+[node name="JournalSprite" type="Sprite2D" parent="camera/Journal"]
+position = Vector2(251, 94)
+scale = Vector2(0.136944, 0.28616)
+texture = ExtResource("8_jdxgp")
+
+[node name="JournalSprite2" type="Sprite2D" parent="camera/Journal"]
+position = Vector2(-46, 91)
+scale = Vector2(0.151528, 0.283432)
+texture = ExtResource("9_gebfc")
+
+[node name="Lower-Right-Boundary" type="Node2D" parent="."]
+position = Vector2(1013, 840)
+scale = Vector2(3.5, 4.096)
+
+[node name="locker" type="Area2D" parent="."]
+position = Vector2(7, -90)
+script = ExtResource("10_ijqj8")
+
+[node name="activationshape" type="CollisionShape2D" parent="locker"]
+position = Vector2(100, 776)
+shape = SubResource("RectangleShape2D_uggjb")
+
+[node name="collider" type="StaticBody2D" parent="locker"]
+
+[node name="collisionshape" type="CollisionShape2D" parent="locker/collider"]
+position = Vector2(99, 710.25)
+shape = SubResource("RectangleShape2D_uggjb")
+
+[node name="sprite" type="Sprite2D" parent="locker"]
+position = Vector2(106, 723)
+scale = Vector2(5.62314, 5.02066)
+texture = ExtResource("10_uvtq2")
+
+[node name="prompt" type="Label" parent="locker"]
+visible = false
+offset_left = 49.0
+offset_top = 573.0
+offset_right = 151.0
+offset_bottom = 672.0
+text = "This locker has a cipher"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[connection signal="body_entered" from="LockerRoomFloorV2/LockerRoomGate01/Area2D" to="LockerRoomFloorV2/LockerRoomGate01/Area2D" method="_on_body_entered"]
+[connection signal="level2_complete" from="Player" to="Player" method="_on_level_2_complete"]
+[connection signal="player_moved" from="camera" to="camera" method="_on_player_moved"]
+[connection signal="toggle_journal" from="camera/Journal" to="camera/Journal" method="_on_toggle_journal"]
+[connection signal="body_entered" from="locker" to="locker" method="_on_body_entered"]
+[connection signal="body_exited" from="locker" to="locker" method="_on_body_exited"]
