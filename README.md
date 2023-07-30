@@ -5,6 +5,6 @@ Bucharest Summer Game Jam submitted edition
 - misses any kind of saving / pausing feature; short game though
 
 Team:
-Me (as developer)
-@lorro9123 - Discord ( as game designer )
+Me (as developer) \
+@lorro9123 - Discord ( as game designer ) \
 @mariah7413 - Discord ( as story writer and artist ) 
