@@ -10,5 +10,5 @@ Me (as developer) \
 @mariah7413 - Discord ( as story writer and artist ) 
 
 Images:
-[!alt text] https://imgur.com/G7V1rbe.png
-[!alt text] https://imgur.com/q1Olv5J.png
+[!alt text](https://imgur.com/G7V1rbe.png)
+[!alt text](https://imgur.com/q1Olv5J.png)
